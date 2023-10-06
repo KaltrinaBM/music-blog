@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kaltrinabm-musicblog-x3si8uy5acw.ws-eu105.gitpod.io', 'musicfan.heroku.com', 'localhost']
+ALLOWED_HOSTS = ['8000-kaltrinabm-musicblog-x3si8uy5acw.ws-eu105.gitpod.io', 'musicfan.heroku.com', ]
 
 
 # Application definition

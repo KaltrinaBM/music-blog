@@ -1,1 +1,1 @@
-web: gunicorn musicfan.wsgi
+web: gunicorn

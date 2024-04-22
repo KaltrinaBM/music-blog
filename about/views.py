@@ -2,5 +2,5 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def about_us(request):
-    return HttpResponse("This would be the about page")
+def my_profile(request):
+    return HttpResponse("My Profile: Sing in / Register")

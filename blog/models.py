@@ -15,4 +15,16 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
 
 
+class ContactFormEntry(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField()
+    subject = models.CharField(max_length=100, blank=True)  # Optional subject field
+    message = models.TextField()
+    phone_number = models.CharField(max_length=15, blank=True)  # Optional phone number field
+    created_at = models.DateTimeField(auto_now_add=True)  # Optional: Timestamp for submission
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"  # Customize the string representation of the model instance
+
+
 

@@ -14,7 +14,9 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -97,11 +99,17 @@ DATABASES = {
      'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
  }
 
-CLOUDINARY_STORAGE = {
-  'CLOUD_NAME': 'ydxm37gakc',
-  'API_KEY': '327847367919243',
-  'API_SECRET': 'QLPReZfX5HXB3zmswR8DoF8EZPY',
-}
+# CLOUDINARY_STORAGE = {
+#   'CLOUD_NAME': 'ydxm37gakc',
+#   'API_KEY': '327847367919243',
+#   'API_SECRET': 'QLPReZfX5HXB3zmswR8DoF8EZPY',
+# }
+
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+)
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",

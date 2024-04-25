@@ -1,15 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Post
 from .forms import ContactForm
 
 # Create your views here.
-def home_blog(request):
 
-    if request.method == "POST":
-        return HttpResponse("You must have POSTed something")
-    else:
-        return HttpResponse(request.method)
-
+# Create your views here.
+class PostList(generic.ListView):
+    queryset = Post.objects.all()
+    template_name = "post_list.html"
 
 def contact(request):
   if request.method == 'POST':

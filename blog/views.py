@@ -5,9 +5,8 @@ from .forms import ContactForm
 
 # Create your views here.
 
-# Create your views here.
 class PostList(generic.ListView):
-    queryset = Post.objects.all()
+    queryset = Post.objects.filter(status=1)
     template_name = "post_list.html"
 
 def contact(request):

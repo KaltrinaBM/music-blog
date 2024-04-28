@@ -57,17 +57,18 @@ def post_detail(request, slug):
     },
     )
 
-
 def contact_us(request):
   if request.method == 'POST':
     form = ContactForm(data=request.POST)
     if form.is_valid():
       form.save() 
       messages.success(request, 'Your message has been sent successfully!')
+      return contact_us_success(request)
+      
   else:
     form = ContactForm()
   return render(request, 'blog/index.html', {'form': form})
 
-# def contact_us_success(request):
-#   """Renders a success page after contact form submission."""
-#   return render(request, 'contact_us_success.html')
+def contact_us_success(request):
+  """Renders a success page after contact form submission."""
+  return render(request, 'blog/index.html')

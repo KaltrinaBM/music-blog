@@ -34,6 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-kaltrinabm-musicblog-x3si8uy5acw.ws-eu110.gitpod.io', 
+    '8000-kaltrinabm-musicblog-p04wc2k134x.ws-eu110.gitpod.io',
     'musicfan.heroku.com',
     'musicfan-2690fdc67af7.herokuapp.com',
     'localhost',

@@ -12,7 +12,11 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
-# Register your models here.
-admin.site.register(ContactFormEntry)
+@admin.register(ContactFormEntry)
+
+class ContactFormEntryAdmin(SummernoteModelAdmin):
+    list_display = ('name', 'email', 'subject', 'message', 'phone_number')
+    summernote_fields = ('message',) 
+
 admin.site.register(Comment)
 

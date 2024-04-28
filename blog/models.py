@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-# Create your models here.
 class Post(models.Model):
+
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -24,15 +24,19 @@ class Post(models.Model):
 
 
 class ContactFormEntry(models.Model):
+
+    #Stores contact form submissions (name, email, subject (opptional), message, phone (optional), timestamp, read flag).
+
     name = models.CharField(max_length=30)
     email = models.EmailField()
-    subject = models.CharField(max_length=100, blank=True)  # Optional subject field
+    subject = models.CharField(max_length=100, blank=True)
     message = models.TextField()
-    phone_number = models.CharField(max_length=15, blank=True)  # Optional phone number field
-    created_at = models.DateTimeField(auto_now_add=True)  # Optional: Timestamp for submission
+    phone_number = models.CharField(max_length=15, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    read = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.name} - {self.email}"  # Customize the string representation of the model instance
+        return f"Name: {self.name}\nEmail: {self.email}\nSubject: {self.subject}"
 
 
 class Comment(models.Model):

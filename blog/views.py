@@ -1,16 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
+from django.shortcuts import render, redirect
 from .models import Post
-from .forms import ContactForm
-from .forms import CommentForm
+from .forms import ContactForm, CommentForm
 
 # Create your views here.
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
-    paginate_by = 6
+    paginate_by = 3
 
 
 def post_detail(request, slug):
@@ -58,20 +58,16 @@ def post_detail(request, slug):
     )
 
 
-def contact(request):
+def contact_us(request):
   if request.method == 'POST':
-    # Handle form submission
-    form = ContactForm(request.POST)
+    form = ContactForm(data=request.POST)
     if form.is_valid():
-      # Process form data (e.g., send email)
-      name = form.cleaned_data['name']
-      email = form.cleaned_data['email']
-      message = form.cleaned_data['message']
-      # Your logic to process the data (e.g., send email)
-      # ...
-      # After processing, redirect to a success page
-      return HttpResponseRedirect('/success/')
+      form.save() 
+      messages.success(request, 'Your message has been sent successfully!')
   else:
-    # Display the form
     form = ContactForm()
-  return render(request, 'contact_form.html', {'form': form})
+  return render(request, 'blog/index.html', {'form': form})
+
+# def contact_us_success(request):
+#   """Renders a success page after contact form submission."""
+#   return render(request, 'contact_us_success.html')

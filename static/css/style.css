@@ -160,8 +160,12 @@ body {
     color: rgb(222, 146, 168);
 }
 
-#contact-us-btn {
-    background-color: #4CAF50; /* Green color */
+
+.contact-btn{
+    bottom: 20px;   
+    right: 20px;    
+    z-index: 10;
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -169,8 +173,11 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    cursor: pointer; 
-  }
+    cursor: pointer;   
+}
+
+
+
   
   #contact-us-btn:hover {
     background-color: #45A049; 

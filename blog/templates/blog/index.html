@@ -17,8 +17,8 @@
                             <div class="card-body">
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                      alt="placeholder image">
+                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                    alt="placeholder image">
                                     {% else %}
                                     <img class="card-img-top" src=" {{ post.featured_image.url }}"
                                       alt="{{ post.title }}">
@@ -80,4 +80,4 @@
 
     {% block copyright %}
     Copyright 2024 Kaltrina Mehmeti
-    {% endblock %}
+    {% endblock copyright %}

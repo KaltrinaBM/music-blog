@@ -159,3 +159,26 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+
+.contact-btn{
+    bottom: 20px;   
+    right: 20px;    
+    z-index: 10;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;   
+}
+
+
+
+  
+  #contact-us-btn:hover {
+    background-color: #45A049; 
+  }

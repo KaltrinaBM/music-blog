@@ -4,7 +4,6 @@
 {% load crispy_forms_tags %}
 
 <div class="container-fluid">
-
     <div class="col-12 mt-3 left">
         <div class="row">
 
@@ -17,11 +16,11 @@
                             <div class="card-body">
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                    alt="placeholder image">
+                                    <img class="card-img-top" src="{% static 'images/default.jpg' %}"
+                                        alt="placeholder image">
                                     {% else %}
                                     <img class="card-img-top" src=" {{ post.featured_image.url }}"
-                                      alt="{{ post.title }}">
+                                        alt="{{ post.title }}">
                                     {% endif %}
                                     <div class="image-flash">
                                         <p class="author">Author: {{ post.author }}</p>
@@ -43,10 +42,8 @@
                 <div class="row">
                     {% endif %}
                     {% endfor %}
-
                 </div>
             </div>
-
         </div>
 
         {% if is_paginated %}
@@ -66,18 +63,19 @@
     </div>
     <div class="row">
         <div class="col-md-12 mb-3 contact-btn">
-            <a href="/contact-us" id="contact_us" class="btn btn-primary" {% if form %}style="display: none;"{% endif %}>Contact Us</a>
+            <a href="/contact-us" class="btn btn-primary" {% if form %}style="display: none;" {% endif %}>Contact Us</a>
         </div>
         <form class="contactus" id="contact_us" method="post" action="{% url 'contact_us' %}">
             {{ form | crispy }}
             {% csrf_token %}
-            <button class="btn btn-secondary" type="submit"{% if not form %}style="display: none;"{% endif %}>Send Message</button>
+            <button class="btn btn-secondary" type="submit" {% if not form %}style="display: none;" {% endif %}>Send
+                Message</button>
         </form>
     </div>
 
-    
     {% endblock %}
 
     {% block copyright %}
     Copyright 2024 Kaltrina Mehmeti
     {% endblock copyright %}
+</div>

@@ -31,11 +31,6 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-    {% if user.is_authenticated %}
-    <p class="text-end m-3">Welcome back, {{ user }}</p>
-    {% else %}
-    <p class="text-end m-3">Sign in to connect!</p>
-    {% endif %}
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -44,7 +39,6 @@
                 <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">MUSiC</span><span
                         class="thin">|Blog</span></a>
             </span>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,8 +46,8 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'home' %}"></a>
+                        <a class="nav-link {% if request.path == home_url %}active" aria-current="page{% endif %}"
+                            href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -91,11 +85,15 @@
     </div>
 
     <main class="flex-shrink-0 main-bg">
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">Welcome back, {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">Sign in to connect!</p>
+        {% endif %}
 
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
-
     </main>
 
     <!-- Footer -->

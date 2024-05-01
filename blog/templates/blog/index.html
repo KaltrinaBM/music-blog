@@ -62,8 +62,8 @@
         {% endif %}
     </div>
     <div class="row">
-        <div class="col-md-12 mb-3 contact-btn">
-            <a href="/contact-us" class="btn btn-primary" {% if form %}style="display: none;" {% endif %}>Contact Us</a>
+        <div class="col-md-12 mb-3 pagination justify-content-center">
+            <a href="/contact-us" class="btn btn-primary" id="contact" {% if form %}style="display: none;" {% endif %}>Contact Us</a>
         </div>
         <form class="contactus" id="contact_us" method="post" action="{% url 'contact_us' %}">
             {{ form | crispy }}

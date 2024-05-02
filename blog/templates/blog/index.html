@@ -19,15 +19,15 @@
                                     <img class="card-img-top" src="{% static 'images/default.jpg' %}"
                                         alt="placeholder image">
                                     {% else %}
-                                    <img class="card-img-top" src=" {{ post.featured_image.url }}"
+                                    <img class="card-img-top"  src=" {{ post.featured_image.url }}"
                                         alt="{{ post.title }}">
                                     {% endif %}
                                     <div class="image-flash">
-                                        <p class="author">Author: {{ post.author }}</p>
+                                        <p class="author font-weight-bold">Author: {{ post.author }}</p>
                                     </div>
                                 </div>
                                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                    <h2 class="card-title">{{ post.title }}</h2>
+                                    <h2 class="card-title" style="font-size: 1.6rem;">{{ post.title }}</h2>
                                     <p class="card-text">{{ post.excerpt }}</p>
                                 </a>
 

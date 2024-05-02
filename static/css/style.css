@@ -1,5 +1,6 @@
 body {
-    background-color: #F9FAFC;
+    background-color: #2863d9;
+    font-family: 'Roboto', sans-serif;
 }
 
 .brand {
@@ -49,19 +50,12 @@ body {
 }
 
 .author {
-    color: white;
+    color: rgb(155, 8, 8);
     margin: 4px;
     text-transform: uppercase;
 }
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
+
 
 .masthead-text {
     background-color: #445261;
@@ -157,4 +151,39 @@ body {
     color: rgb(222, 146, 168);
 }
 
+.navbar {
+    background-color: #333; 
+}
 
+.nav-link {
+    color: #f0f0f0; 
+}
+
+.nav-link:hover {
+    color: #ddd; 
+}
+
+.navbar-brand {
+    font-size: 1.5em; 
+}
+
+
+.jumbotron {
+    background: url('your-image-url.jpg') no-repeat center center; 
+    background-size: cover; 
+    color: white; 
+}
+
+.jumbotron .btn {
+    background-color: #f0f0f0; 
+    color: #333; 
+}
+
+.jumbotron .btn:hover {
+    background-color: #ddd; 
+}
+
+
+.container {
+    padding-top: 30px; 
+}

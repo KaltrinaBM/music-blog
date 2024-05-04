@@ -1,89 +1,86 @@
 {% extends "base.html" %}
-
-{% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
 
-<!--
-This template displays a list of blog posts in a grid format, with pagination and a contact form.
-
-- Blog posts are shown in cards with a featured image, title, author, and an excerpt.
-- Pagination controls allow navigation through multiple pages.
-- The template includes a form to contact the Music blog's team.
--->
-
+{% block content %}
 <div class="container-fluid">
     <div class="col-12 mt-3 left">
         <div class="row">
             <div class="col-12 mt-3 left">
                 <div class="row">
                     {% for post in post_list %}
-                    <div class="col-md-4"> <!-- Blog post card -->
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div class="image-container">
-                                    {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                        alt="placeholder image">
-                                    {% else %}
-                                    <img class="card-img-top" src=" {{ post.featured_image.url }}"
-                                        alt="{{ post.title }}">
-                                    {% endif %}
-                                    <div class="image-flash bg-dark">
-                                        <p class="author">By {{ post.author }}</p>
+                        <div class="col-md-4"> <!-- Blog post card -->
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="image-container">
+                                        {% if "placeholder" in post.featured_image.url %}
+                                            <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                                        {% else %}
+                                            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                                        {% endif %}
+                                        <div class="image-flash bg-dark">
+                                            <p class="author">By {{ post.author }}</p>
+                                        </div>
                                     </div>
+                                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                        <h2 class="card-title" style="font-size: 1.6rem;">{{ post.title }}</h2>
+                                        <p class="card-text">{{ post.excerpt }}</p>
+                                    </a>
+                                    <hr>
+                                    <p class="card-text text-muted h6">{{ post.created_on}}</p>
                                 </div>
-                                <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                    <h2 class="card-title" style="font-size: 1.6rem;">{{ post.title }}</h2>
-                                    <p class="card-text">{{ post.excerpt }}</p>
-                                </a>
-                                <hr>
-                                <p class="card-text text-muted h6">{{ post.created_on}}
-                                </p>
                             </div>
                         </div>
-                    </div>
-                    {% if forloop.counter|divisibleby:3 %}
-                </div>
-                <div class="row">
-                    {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
 
-        {% if is_paginated %}
+                        {% if forloop.counter|divisibleby:3 %}
+                            </div> <!-- Close row -->
+                            <div class="row">
+                        {% endif %}
+                    {% endfor %}
+                </div> <!-- Close outer row -->
+            </div> <!-- Close inner row -->
+        </div> <!-- Close col-12 -->
+    </div> <!-- Close container-fluid -->
+
+    {% if is_paginated %}
         <nav aria-label="Page navigation"> <!-- Pagination controls -->
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
-                <li>
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
-                </li>
+                    <li>
+                        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                    </li>
                 {% endif %}
                 {% if page_obj.has_next %}
-                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                    <li>
+                        <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+                    </li>
                 {% endif %}
             </ul>
         </nav>
-        {% endif %}
-    </div>
+    {% endif %}
 
     <div class="row"> <!-- Contact form section -->
         <div class="col-md-12 mb-3 pagination justify-content-center">
-            <a href="/contact-us" class="btn" id="contact" {% if form %}style="display: none;" {% endif %}>Contact
-                Us</a>
+            <a href="{% url 'contact_us' %}" class="btn" id="contact" {% if form %}style="display: none;" {% endif %}>Contact Us</a>
         </div>
-        <form class="contactus" id="contact_us" method="post" action="{% url 'contact_us' %}">
-            {{ form | crispy }}
-            {% csrf_token %}
-            <button class="btn btn-secondary" type="submit" {% if not form %}style="display: none;" {% endif %}>Send
-                Message</button>
-        </form>
-    </div>
-</div>
+
+        {% if form %}
+            <div class="container"> <!-- Contact form section -->
+                <div class="col-md-12">
+                    <form class="contact-us" id="contact_us" method="post" action="{% url 'contact_us' %}">
+                        <h2 class="mb-5">Contact Us—We're All Ears!</h2> <!-- Heading for contact form -->
+                        {{ form | crispy }}
+                        {% csrf_token %}
+                        <button class="btn btn-secondary" type="submit">Send Message</button> <!-- Send button -->
+                    </form>
+                </div> <!-- Close col-md-12 -->
+            </div> <!-- Close container -->
+        {% endif %}
+    </div> <!-- Close row -->
+</div> <!-- Close container-fluid -->
 
 {% endblock %}
 
 {% block copyright %}
 Copyright 2024 Kaltrina Mehmeti
-{% endblock copyright %}
+{% endblock %}

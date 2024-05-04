@@ -53,9 +53,9 @@
                 {% for comment in comments %}
                 <div
                     class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="font-weight-bold text-dark">
+                    <p class="font-weight-bold text-muted">
                         {{ comment.author }}
-                        <span class="font-weight-normal">
+                        <span class="font-weight-normal text-muted">
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
@@ -63,7 +63,7 @@
                         {{ comment.body | linebreaks }}
                     </div>
                     {% if not comment.approved and comment.author == user %}
-                    <p class="approval">This comment is awaiting approval</p>
+                    <p class="approval">This comment is awaiting approval!</p>
                     {% endif %}
                     {% if user.is_authenticated and comment.author == user %}
                     <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>

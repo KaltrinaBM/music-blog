@@ -7,11 +7,10 @@ Views for the blog application, including:
 - Comment editing and deletion views with user authentication checks.
 """
 
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect
 from .models import Post, Comment
 from .forms import ContactForm, CommentForm
 
@@ -63,16 +62,13 @@ def post_detail(request, slug):
 def contact_us(request):
     """
     Handles contact form submissions.
-
-    - Processes POST requests for form submission.
-    - Renders the contact form and displays success messages.
     """
     if request.method == 'POST':
         form = ContactForm(data=request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your message has been sent successfully!')
-            return contact_us_success(request)
+            return redirect('contact_us_success')  # Redirect to the success view
     else:
         form = ContactForm()
 
@@ -83,7 +79,7 @@ def contact_us_success(request):
     """
     Renders a success page after contact form submission.
     """
-    return render(request, 'blog/index.html')
+    return render(request, 'blog/contact_us_success.html')
 
 
 def comment_edit(request, slug, comment_id):

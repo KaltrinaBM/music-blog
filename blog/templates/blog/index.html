@@ -19,11 +19,11 @@
                                     <img class="card-img-top" src="{% static 'images/default.jpg' %}"
                                         alt="placeholder image">
                                     {% else %}
-                                    <img class="card-img-top"  src=" {{ post.featured_image.url }}"
+                                    <img class="card-img-top" src=" {{ post.featured_image.url }}"
                                         alt="{{ post.title }}">
                                     {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author font-weight-bold">Author: {{ post.author }}</p>
+                                    <div class="image-flash bg-dark">
+                                        <p class="author">By {{ post.author }}</p>
                                     </div>
                                 </div>
                                 <a href="{% url 'post_detail' post.slug %}" class="post-link">
@@ -63,7 +63,8 @@
     </div>
     <div class="row">
         <div class="col-md-12 mb-3 pagination justify-content-center">
-            <a href="/contact-us" class="btn btn-primary" id="contact" {% if form %}style="display: none;" {% endif %}>Contact Us</a>
+            <a href="/contact-us" class="btn" id="contact" {% if form %}style="display: none;" {% endif %}>Contact
+                Us</a>
         </div>
         <form class="contactus" id="contact_us" method="post" action="{% url 'contact_us' %}">
             {{ form | crispy }}

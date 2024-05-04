@@ -1,15 +1,17 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+
+<!-- This template displays the content of a single blog post with its title, author, and image in the masthead.
+    It also includes the blog post's content, comments section, and a form for users to add new comments if authenticated.
+    Additionally, a modal is provided to confirm comment deletions. -->
 
 {% block content %}
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
@@ -27,8 +29,6 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
                 <article class="card-text">
                     {{ post.content | safe }}
                 </article>
@@ -91,6 +91,7 @@
         </div>
     </div>
 </div>
+
 <!-- Delete confirmation modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -100,7 +101,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete your comment? This action cannot be undone.
+                Are you really, really sure you want to delete your comment? Once it's gone, it's like that sock you
+                lost in the dryer—never coming back!
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

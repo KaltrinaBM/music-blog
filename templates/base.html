@@ -12,7 +12,7 @@
     <title>Music Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts CSS -->
+    <!-- Google Fonts and Font Awesome for Icons -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
@@ -105,16 +105,22 @@
 
 
 <!-- Footer -->
-<footer class="footer mt-auto py-3 bg-dark">
+<footer class="footer text-center py-3 bg-dark">
     <p class="m-0 text-center text-white">
-        {% block copyright %}
-        Music Blog
-        {% endblock copyright %}
+    </p>Follow us:
+    <a href="https://www.instagram.com/your_profile" target="_blank" class="ms-3 text-white" rel="noopener noreferrer">
+        <i class="fab fa-instagram-square"></i>
+    </a>
+    <a href="https://www.facebook.com/your_profile" target="_blank" class="ms-3 text-white" rel="noopener noreferrer">
+        <i class="fab fa-facebook-square"></i>
+    </a>
+    <a href="https://www.youtube.com/your_channel" target="_blank" class="ms-3 text-white" rel="noopener noreferrer">
+        <i class="fab fa-youtube-square"></i>
+    </a>
     </p>
-    <p class="m-0 text-center text-white">Follow us: <i class="fab fa-instagram-square ms-3"></i>
-        <i class="fab fa-facebook-square ms-3"></i>
-        <i class="fab fa-youtube-square ms-3"></i>
-    </p>
+    {% block copyright %}
+    Music Blog
+    {% endblock copyright %}
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

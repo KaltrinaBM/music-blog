@@ -1,37 +1,150 @@
+:root {
+    --primary-color: rgba(255, 255, 255, .55);
+    --secondary-color: rgba(255, 255, 255, .70);
+    --accent-color: #ff7f00;
+    --background-color: #ecf0f1;
+    --text-color: #212529;
+    --white: #ffffff;
+    --logo-primary-color: #f6bd60;
+    --logo-secondary-color: #f4a261;
+    --logo-shadow-color: rgba(0, 0, 0, 0.15);
+    --logo-font: 'Lato', sans-serif;
+    --card-background: #ffffff;
+    --card-title-color: #333333;
+    --card-text-color: #555555;
+    --card-border-color: #e0e0e0;
+    --card-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    background-color: #F9FAFC;
+    background-color: var(--background-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
 }
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+.navbar {
+    background-color: var(--primary-color);
 }
 
-.red-o {
-    color: #E84610;
+.nav-link {
+    color: var(--primary-color);
 }
 
-.thin {
-    font-weight: 300;
+.nav-link:hover {
+    color: var(--secondary-color);
 }
 
-.light-bg {
-    background-color: #fff;
+.jumbotron {
+    color: var(--white);
 }
 
-.dark-bg {
-    background-color: #445261;
+.jumbotron .btn {
+    background-color: var(--white);
+    color: var(--text-color);
+}
+
+.jumbotron .btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 .card {
     border: none;
     background-color: transparent;
+}
+
+.link {
+    color: var(--logo-primary-color);
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: var(--logo-secondary-color);
+    text-decoration: underline;
+}
+
+.btn-signup,
+.btn-edit {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-signup:hover,
+.btn-edit:hover {
+    background-color: var(--white);
+    color: var(--accent-color);
+}
+
+.author {
+    color: var(--logo-primary-color);
+    font-weight: bolder;
+}
+
+.approval {
+    color: var(--accent-color);
+    font-weight: bolder;
+}
+
+.faded {
+    color: var(--logo-secondary-color);
+}
+
+.logo-text {
+    font-family: var(--logo-font);
+    font-size: 2.5em;
+    color: var(--logo-primary-color);
+    text-shadow: 1px 1px 3px var(--logo-shadow-color);
+    margin: 0;
+    padding-right: 10px;
+}
+
+.logo-text:hover {
+    color: var(--logo-primary-color);
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border-color);
+    box-shadow: 0 2px 10px var(--card-shadow-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    color: var(--card-title-color);
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.card-text {
+    font-size: 1em;
+    color: var(--card-text-color);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    text-decoration: none;
+}
+
+.post-link {
+    text-decoration: none;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
 }
 
 .image-container {
@@ -46,17 +159,6 @@ body {
     background-color: #188181;
 }
 
-.scale {
-    width: 100%;
-    height: auto;
-}
-
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -69,7 +171,23 @@ body {
 .masthead-text {
     background-color: #445261;
     color: white;
-    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 15px;
+}
+
+.post-title {
+    flex: 1;
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+.post-subtitle {
+    font-size: 1em;
+    margin-top: 0.5em;
 }
 
 .masthead-image {
@@ -85,20 +203,12 @@ body {
     height: 100%;
     width: 150%;
     background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
 }
 
-.post-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
+.profile-image {
+    width: 75%;
 }
 
 .post-title {
@@ -134,51 +244,26 @@ body {
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
 .btn-delete {
     color: #fff;
     background: #E84610;
 }
 
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
+#contact {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 12px 24px;
+    font-size: 1.2em;
     border: none;
-}
-
-.faded {
-    color: rgb(172, 175, 175);
-}
-
-.approval {
-    color: rgb(222, 146, 168);
-}
-
-
-.contact-btn{
-    bottom: 20px;   
-    right: 20px;    
-    z-index: 10;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
+    border-radius: 8px;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;   
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-
-
-  
-  #contact-us-btn:hover {
-    background-color: #45A049; 
-  }
+#contact:hover {
+    background-color: var(--logo-secondary-color);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}

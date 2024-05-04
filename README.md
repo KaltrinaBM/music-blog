@@ -1,39 +1,36 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Music Blog
+A Django-based blog platform for music enthusiasts to read and write about music trends, reviews, and news.
 
-Welcome,
+[**Live Demo**](https://musicfan-2690fdc67af7.herokuapp.com/)
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Table of Contents
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Setup](#setup)
+4. [Usage](#usage)
+5. [Contributing](#contributing)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
 
-## Codeanywhere Reminders
+## Overview
+Music Blog is a Django-based web application that allows users to read and write blog posts about music. It features user authentication, post creation and editing, comment system and contact form.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+The application uses Bootstrap for styling and Django's built-in authentication system for user management.
 
-`python3 -m http.server`
+## Features
+- User authentication (sign up, sign in, sign out)
+- CRUD creation, reading, updating and deletion of data records
+- Comment system for blog posts
+- Responsive design using Bootstrap
+- Contact form for user inquiries
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
 
-`http_server`
+### 6. Usage Instructions
+To use the Music Blog application, follow these steps:
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+1. **Sign Up**: Create an account to start interacting with the blog.
+2. **Sign In**: Log in to access additional features like creating blog posts and leaving comments.
+3. **Create a Blog Post**: After signing in, you can create a new blog post from the user dashboard.
+4. **Comment on Blog Posts**: Signed-in users can leave comments on blog posts.
+5. **Admin Panel**: Access the [admin panel](https://musicfan-2690fdc67af7.herokuapp.com/admin/) with your superuser credentials to manage the site.
+6. **Contact form**: Contact the team with a vaild email, signing is not required.
